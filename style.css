@@ -24,6 +24,10 @@ h2 {
     margin: 0;
 }
 
+/* .image-container img {
+    max-width: 70%;
+} */
+
 .wrapper {
     max-width: 1200px;
     width: 80%;
@@ -33,6 +37,7 @@ h2 {
 
 .button {
     background-color: #fdc800;
+    color:#232323;
     font-family: 'Cabin' sans-serif;
     font-weight: bold;
     font-size: 18px;
@@ -54,7 +59,7 @@ h2 {
 /* header styles! */
 
  header {
-    background: url(./tasty-assets/asset-1.jpg); 
+    background: url(./tasty/tasty-assets/asset-1.jpg); 
     background-size: cover;
     background-repeat: no-repeat; 
     background-position: bottom;
@@ -64,6 +69,7 @@ h2 {
 header .wrapper {
     display: flex;
     justify-content: space-between; 
+    max-width: 100%;
 }
 
 .feature {
@@ -152,18 +158,47 @@ nav a:focus {
     margin: 50px 0;
 }
 
-.image-container img {
-    width: 50%;
+.button-wrapper:hover,
+.button-wrapper:focus {
+    text-decoration: underline;
 }
+
+.gallery .wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.gallery {
+    background: #F8F8F8;
+}
+
+.gallery ul {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 40px;
+}
+
+img {
+    width: 300px;
+    display: block;
+    height: auto;
+}
+
+/* an attempt at the contact bar! */
 
 .stay-updated {
     font-size: 18px;
+    line-height: 29px;
+    font-family: 'Cabin' sans-serif;
     background-color: #232323;
-    color: white;
+    color: #f8f8f8;
 }
 
-.stay-updated .wrapper {
+ .stay-updated .wrapper {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 50px 0px;
 }
 
 .stay-updated h2 {
@@ -171,48 +206,66 @@ nav a:focus {
 }
 
 .stay-updated .text-container {
-    display: flex;
-    justify-content: space-between;
-    width: 50%;
-    margin-right: 50px;
+    display: flex; 
+    width: 50%; 
+    max-width: 100%;
+    justify-content: center;
 }
 
 .text-container .contact {
     display: flex;
     flex-direction: column;
+    max-width: 100%;
 }
 
 .text-container .pages {
     display: flex;
     flex-direction: column;
+    max-width: 100%
+}
+
+.pages span {
+    display: none;
 }
 
 .pages a {
     text-decoration: none;
     text-transform: uppercase;
+    color: #f8f8f8;
 }
 
 .pages a:visited {
-    color: white;
+    color: #f8f8f8;
 }
 
 .text-container .recent-posts {
     display: flex;
     flex-direction: column;
+    max-width: 100%;
+}
+
+.text-container,
+.stay-updated-container {
+    flex-basis: 50%;
+}
+
+.recent-posts a {
+    text-decoration: none;
+    color: white;
 }
 
 .stay-updated-container {
     display: flex;
-    width: 50%;
     flex-direction: column;
+    margin: 0px 50px;
 }
 
 .subscriptions-container {
     display: flex;
-}
+} 
 
 input {
-    width: 80%;
+    width: 250px;
     padding: 5px;
 }
 
@@ -232,21 +285,15 @@ footer {
     padding: 10px;
 }
 
-/* footer .wrapper {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-} */
-
 /* media queries */
 
-@media (max-width: 720px) {
+@media (max-width: 360px) {
     body {
         flex-direction: column;
     }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 360px) {
     nav ul {
        display: none;
    }
@@ -258,19 +305,20 @@ footer {
    .nav-icon {
        display: block;
    }
-}
-
-@media (max-width: 720px) {
-
-    .stay-updated .wrapper {
-        flex-direction: column-reverse;
-        text-align: center;
-        align-items: center;
-        width: 100%;
-    } 
+    .gallery {
+        display: none;
+    }
 
     .stay-updated .text-container {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
         flex-direction: column;
+    } 
+
+    .stay-updated-container {
+        width: 70%;
+        padding-bottom: 40px;
     }
 
     .stay-updated .recent-posts {
@@ -279,15 +327,30 @@ footer {
 
     .stay-updated .contact {
         text-align: center;
+        width: 100%;
+    }
+
+    .stay-updated .pages {
+        margin: 5px auto;
     }
 
     .stay-updated .pages ul {
         display: flex;
-        justify-content: space-between;
+        justify-content: center; 
+    }
+
+    .stay-updated .pages li {
+        display: flex;
+        margin: 0px 5px;
+    }
+
+    .pages span {
+        display: contents;
     }
 
     .subscriptions-container {
         flex-direction: column;
+        width: 100%;
     }
 
     input {
